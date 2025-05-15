@@ -240,8 +240,9 @@
 
 /* Access Education Section */
 .access-education {
-    padding: 86.82px 184.5px 65.18px 192.6px;
+    padding: 57px 130px 65px 130px;
     background-color: #007858;
+    
     
 }
 
@@ -249,16 +250,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0;
     width: 100%;
+    gap: 15px;
 }
 
 .access-content {
     
     display: flex;
     flex-direction: column;
-    justify-content: space-around ;
+    justify-content: space-between;
     flex: 1;
     text-align: justify;
     width: 50%;
@@ -267,10 +269,10 @@
 }
 
 .access-content h2 {
-    font-family: "Inter", sans-serif;
-    font-size: 3.69rem;
-    color: #D0FBE6;
+    
+    color: #D0FBE6;s
     height: 114px;
+    font-size
 
 }
 
@@ -279,8 +281,7 @@
 }
 
 .access-content p {
-    font-family: "Inter", sans-serif;
-    font-size: 2rem;
+    
     font-weight: 400;
     color: #6AEBBA;
     }
@@ -297,8 +298,6 @@
     text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s ease;
-    font-family: "Inter", sans-serif;
-    font-size: 2rem;
     box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -315,6 +314,12 @@
     display: flex;
     justify-content: flex-end;
     width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    top: 0;
+    left: 0;
+      
 }
 
 .access-image img {
@@ -324,25 +329,31 @@
 /* Transform Education Section */
 .transform-education {
     padding: 80px 0;
-    background-color: #2dd4bf;
-    color: #1e293b;
-}
+    }
 
 .transform-education .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
+    flex-direction: column;  
+}
+
+.transform-education .transform-items {
+    display: flex;
+    flex-direction: row-reverse;
+     
 }
 
 .transform-content {
     flex: 1;
+       
 }
 
 .transform-content h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #1e293b;
+    
 }
 
 .transform-content p {
@@ -366,8 +377,7 @@
 /* Education Challenges Section */
 .education-challenges {
     padding: 80px 0;
-    background-color: #2dd4bf;
-    color: #1e293b;
+    
 }
 
 .education-challenges .container {
@@ -377,7 +387,7 @@
 .education-challenges h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #1e293b;
+    
 }
 
 .education-challenges .subtitle {
@@ -392,13 +402,14 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+
 }
 
 .challenge-item {
     display: flex;
     align-items: center;
     gap: 30px;
-    background-color: #ffffff;
+    background-color: #0ABF86;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -422,7 +433,7 @@
 .challenge-text h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #1e293b;
+    
 }
 
 .challenge-text p {
@@ -434,8 +445,7 @@
 /* Why Research Section */
 .why-research {
     padding: 80px 0;
-    background-color: #ffffff;
-    color: #1e293b;
+    
 }
 
 .why-research .container {
@@ -445,7 +455,7 @@
 .why-research h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #1e293b;
+    
 }
 
 .why-research .subtitle {

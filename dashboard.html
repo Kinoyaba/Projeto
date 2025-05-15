@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header class="header dashboard-header">
@@ -23,10 +24,10 @@
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="#estudantes">Estudantes</a></li>
-                    <li><a href="#regioes">Regiões</a></li>
                     <li><a href="#infraestrutura">Infraestrutura</a></li>
                     <li><a href="#evasao">Evasão</a></li>
                     <li><a href="#ideb">IDEB</a></li>
+                    <li><a href="#regioes">Regiões</a></li>
                 </ul>
                 <div class="mobile-menu-icon">
                     <i class="fas fa-bars"></i>
@@ -57,12 +58,13 @@
                 <div class="section-header">
                     <h3>Realidade dos Estudantes</h3>
                     <div class="section-controls">
-                        <select id="yearFilterEstudantes" class="filter-control">
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
+                        <select id="stateFilterEstudantes" class="filter-control">
+                            <option value="0">Todos os Estados</option>
                         </select>
+                        <input id="cityFilterEstudantes" list="cityListEstudantes" class="filter-control" placeholder="Selecione ou digite o município" />
+                        <datalist id="cityListEstudantes">
+                            <option value="0">Todos os Municípios</option>
+                        </datalist>
                         <button class="btn-export" id="exportEstudantes">
                             <i class="fas fa-download"></i> Exportar
                         </button>
@@ -90,32 +92,17 @@
                 </div>
             </section>
 
-            <section id="regioes" class="dashboard-section">
-                <div class="section-header">
-                    <h3>Desigualdades Regionais</h3>
-                    <div class="section-controls">
-                        <select id="indicadorRegional" class="filter-control">
-                            <option value="ideb">IDEB</option>
-                            <option value="evasao">Taxa de Evasão</option>
-                            <option value="infraestrutura">Índice de Infraestrutura</option>
-                        </select>
-                        <button class="btn-export" id="exportRegioes">
-                            <i class="fas fa-download"></i> Exportar
-                        </button>
-                    </div>
-                </div>
-                <div class="map-container" id="mapBrasil">
-                    <!-- Mapa interativo do Brasil será renderizado aqui via JavaScript -->
-                </div>
-                <div class="chart-container">
-                    <canvas id="regioesComparisonChart"></canvas>
-                </div>
-            </section>
-
             <section id="infraestrutura" class="dashboard-section">
                 <div class="section-header">
                     <h3>Infraestrutura das Escolas</h3>
                     <div class="section-controls">
+                        <select id="stateFilterInfraestrutura" class="filter-control">
+                            <option value="0">Todos os Estados</option>
+                        </select>
+                        <input id="cityFilterInfraestrutura" list="cityListInfraestrutura" class="filter-control" placeholder="Selecione ou digite o município" />
+                        <datalist id="cityListInfraestrutura">
+                            <option value="0">Todos os Municípios</option>
+                        </datalist>
                         <select id="tipoInfraestrutura" class="filter-control">
                             <option value="todas">Todas as Escolas</option>
                             <option value="publicas">Escolas Públicas</option>
@@ -152,6 +139,13 @@
                 <div class="section-header">
                     <h3>Evasão Escolar</h3>
                     <div class="section-controls">
+                        <select id="stateFilterEvasao" class="filter-control">
+                            <option value="0">Todos os Estados</option>
+                        </select>
+                        <input id="cityFilterEvasao" list="cityListEvasao" class="filter-control" placeholder="Selecione ou digite o município" />
+                        <datalist id="cityListEvasao">
+                            <option value="0">Todos os Municípios</option>
+                        </datalist>
                         <select id="nivelEvasao" class="filter-control">
                             <option value="todos">Todos os Níveis</option>
                             <option value="fundamental">Ensino Fundamental</option>
@@ -188,6 +182,13 @@
                 <div class="section-header">
                     <h3>Desempenho Acadêmico (IDEB)</h3>
                     <div class="section-controls">
+                        <select id="stateFilterIdeb" class="filter-control">
+                            <option value="0">Todos os Estados</option>
+                        </select>
+                        <input id="cityFilterIdeb" list="cityListIdeb" class="filter-control" placeholder="Selecione ou digite o município" />
+                        <datalist id="cityListIdeb">
+                            <option value="0">Todos os Municípios</option>
+                        </datalist>
                         <select id="nivelIdeb" class="filter-control">
                             <option value="todos">Todos os Níveis</option>
                             <option value="inicialFundamental">Anos Iniciais - Fundamental</option>
@@ -220,6 +221,25 @@
                     <canvas id="idebChart"></canvas>
                 </div>
             </section>
+
+            <section id="regioes" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Desigualdades Regionais</h3>
+                    <div class="section-controls">
+                        <select id="indicadorRegional" class="filter-control">
+                            <option value="ideb">IDEB</option>
+                            <option value="evasao">Taxa de Evasão</option>
+                            <option value="infraestrutura">Índice de Infraestrutura</option>
+                        </select>
+                        <button class="btn-export" id="exportRegioes">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="regioesComparisonChart"></canvas>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -235,10 +255,10 @@
                     <ul>
                         <li><a href="index.html">Início</a></li>
                         <li><a href="#estudantes">Estudantes</a></li>
-                        <li><a href="#regioes">Regiões</a></li>
                         <li><a href="#infraestrutura">Infraestrutura</a></li>
                         <li><a href="#evasao">Evasão</a></li>
                         <li><a href="#ideb">IDEB</a></li>
+                        <li><a href="#regioes">Regiões</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
@@ -253,7 +273,7 @@
             </div>
             <div class="footer-bottom">
                 <p>Obrigado pela confiança <i class="fas fa-heart"></i></p>
-                <p>&copy; 2025 Educação em Dados. Todos os direitos reservados.</p>
+                <p>© 2025 Educação em Dados. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
