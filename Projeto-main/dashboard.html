@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Educação em Dados</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <header class="header dashboard-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Educação em Dados</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#estudantes">Estudantes</a></li>
+                    <li><a href="#regioes">Regiões</a></li>
+                    <li><a href="#infraestrutura">Infraestrutura</a></li>
+                    <li><a href="#evasao">Evasão</a></li>
+                    <li><a href="#ideb">IDEB</a></li>
+                </ul>
+                <div class="mobile-menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-header-content">
+                <h2>Dashboard Educacional</h2>
+                <p>Visualize e analise os dados da educação brasileira</p>
+            </div>
+
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="spinner"></div>
+                <p>Carregando dados...</p>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Erro ao carregar os dados. Tente novamente mais tarde.</p>
+                <button class="btn-retry" id="btnRetry">Tentar Novamente</button>
+            </div>
+
+            <section id="estudantes" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Realidade dos Estudantes</h3>
+                    <div class="section-controls">
+                        <select id="yearFilterEstudantes" class="filter-control">
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                        <button class="btn-export" id="exportEstudantes">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="data-card">
+                        <h4>Total de Estudantes</h4>
+                        <p class="card-value" id="totalEstudantes">-</p>
+                        <p class="card-comparison"><span id="compEstudantes">-</span> vs. ano anterior</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Estudantes em Escolas Públicas</h4>
+                        <p class="card-value" id="estudantesPublicas">-</p>
+                        <p class="card-percentage" id="percEstudantesPublicas">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Estudantes em Escolas Privadas</h4>
+                        <p class="card-value" id="estudantesPrivadas">-</p>
+                        <p class="card-percentage" id="percEstudantesPrivadas">-</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="estudantesDistribuicaoChart"></canvas>
+                </div>
+            </section>
+
+            <section id="regioes" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Desigualdades Regionais</h3>
+                    <div class="section-controls">
+                        <select id="indicadorRegional" class="filter-control">
+                            <option value="ideb">IDEB</option>
+                            <option value="evasao">Taxa de Evasão</option>
+                            <option value="infraestrutura">Índice de Infraestrutura</option>
+                        </select>
+                        <button class="btn-export" id="exportRegioes">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="map-container" id="mapBrasil">
+                    <!-- Mapa interativo do Brasil será renderizado aqui via JavaScript -->
+                </div>
+                <div class="chart-container">
+                    <canvas id="regioesComparisonChart"></canvas>
+                </div>
+            </section>
+
+            <section id="infraestrutura" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Infraestrutura das Escolas</h3>
+                    <div class="section-controls">
+                        <select id="tipoInfraestrutura" class="filter-control">
+                            <option value="todas">Todas as Escolas</option>
+                            <option value="publicas">Escolas Públicas</option>
+                            <option value="privadas">Escolas Privadas</option>
+                        </select>
+                        <button class="btn-export" id="exportInfraestrutura">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="data-card">
+                        <h4>Acesso à Internet</h4>
+                        <p class="card-value" id="internetAccess">-</p>
+                        <p class="card-comparison"><span id="compInternet">-</span> vs. ano anterior</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Laboratórios de Ciência</h4>
+                        <p class="card-value" id="scienceLabs">-</p>
+                        <p class="card-comparison"><span id="compLabs">-</span> vs. ano anterior</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Bibliotecas</h4>
+                        <p class="card-value" id="libraries">-</p>
+                        <p class="card-comparison"><span id="compLibraries">-</span> vs. ano anterior</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="infraestruturaChart"></canvas>
+                </div>
+            </section>
+
+            <section id="evasao" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Evasão Escolar</h3>
+                    <div class="section-controls">
+                        <select id="nivelEvasao" class="filter-control">
+                            <option value="todos">Todos os Níveis</option>
+                            <option value="fundamental">Ensino Fundamental</option>
+                            <option value="medio">Ensino Médio</option>
+                        </select>
+                        <button class="btn-export" id="exportEvasao">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="data-card">
+                        <h4>Taxa de Evasão Geral</h4>
+                        <p class="card-value" id="taxaEvasao">-</p>
+                        <p class="card-comparison"><span id="compEvasao">-</span> vs. ano anterior</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Principal Motivo</h4>
+                        <p class="card-value" id="motivoEvasao">-</p>
+                        <p class="card-percentage" id="percMotivoEvasao">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Região com Maior Evasão</h4>
+                        <p class="card-value" id="regiaoEvasao">-</p>
+                        <p class="card-percentage" id="taxaRegiaoEvasao">-</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="evasaoChart"></canvas>
+                </div>
+            </section>
+
+            <section id="ideb" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Desempenho Acadêmico (IDEB)</h3>
+                    <div class="section-controls">
+                        <select id="nivelIdeb" class="filter-control">
+                            <option value="todos">Todos os Níveis</option>
+                            <option value="inicialFundamental">Anos Iniciais - Fundamental</option>
+                            <option value="finalFundamental">Anos Finais - Fundamental</option>
+                            <option value="medio">Ensino Médio</option>
+                        </select>
+                        <button class="btn-export" id="exportIdeb">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="data-card">
+                        <h4>IDEB Nacional</h4>
+                        <p class="card-value" id="idebNacional">-</p>
+                        <p class="card-comparison"><span id="compIdeb">-</span> vs. meta</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Melhor Estado</h4>
+                        <p class="card-value" id="melhorEstado">-</p>
+                        <p class="card-value-secondary" id="idebMelhorEstado">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Pior Estado</h4>
+                        <p class="card-value" id="piorEstado">-</p>
+                        <p class="card-value-secondary" id="idebPiorEstado">-</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="idebChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Educação em Dados</h3>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="#estudantes">Estudantes</a></li>
+                        <li><a href="#regioes">Regiões</a></li>
+                        <li><a href="#infraestrutura">Infraestrutura</a></li>
+                        <li><a href="#evasao">Evasão</a></li>
+                        <li><a href="#ideb">IDEB</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Nos Siga</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Obrigado pela confiança <i class="fas fa-heart"></i></p>
+                <p>&copy; 2025 Educação em Dados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/charts.js"></script>
+</body>
+</html>
