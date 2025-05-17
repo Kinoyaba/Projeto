@@ -1,0 +1,240 @@
+/* Dashboard Specific Styles */
+
+/* Dashboard header */
+.dashboard-header {
+    background-color: var(--primary-color);
+}
+
+.dashboard-header .logo h1,
+.dashboard-header .nav li a {
+    color: white;
+}
+
+.dashboard-header .logo i {
+    color: white;
+}
+
+.dashboard-header .nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Dashboard main content */
+.dashboard-main {
+    padding: 40px 0;
+}
+
+.dashboard-header-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-header-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.dashboard-header-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Dashboard sections */
+.dashboard-section {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.section-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-control {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    color: var(--text-dark);
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Data cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.data-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.data-card h4 {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.card-value-secondary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.card-comparison {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.card-comparison span.positive {
+    color: var(--success-color);
+}
+
+.card-comparison span.negative {
+    color: var(--error-color);
+}
+
+.card-percentage {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Chart containers */
+.chart-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Map visualization */
+.map-container {
+    width: 100%;
+    height: 500px;
+    background-color: rgba(37, 99, 235, 0.05);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Legend for charts and maps */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+/* Tooltips for charts */
+.tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10;
+    font-size: 0.9rem;
+    max-width: 250px;
+}
+
+.tooltip-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.tooltip-value {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Responsive styles for dashboard */
+@media (max-width: 992px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .chart-container {
+        height: 350px;
+    }
+    
+    .map-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .section-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+    
+    .map-container {
+        height: 350px;
+    }
+}
