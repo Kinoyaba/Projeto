@@ -47,7 +47,7 @@
 /* Dashboard sections */
 .dashboard-section {
     background-color: var(--bg-card);
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 30px;
     margin-bottom: 40px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -76,7 +76,7 @@
 .filter-control {
     padding: 6px 12px;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: white;
     color: var(--text-dark);
     font-family: var(--font-family);
@@ -93,8 +93,8 @@
 }
 
 .data-card {
-    background-color: white;
-    border-radius: 8px;
+    background-color: #6AEBBA;
+    border-radius: 20px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border-color);

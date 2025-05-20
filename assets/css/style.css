@@ -7,12 +7,12 @@
     --secondary-color: #10B981;
     --secondary-light: #34D399;
     --secondary-dark: #059669;
-    --text-dark: #A4F6D1;
-    --text-light: #64748B;
+    --text-dark: #012D24;
+    --text-light: #A4F6D1;
     --text-lighter: #94A3B8;
-    --bg-light: #F8FAFC;
+    --bg-light: #2fd89d;
     --bg-dark: #1E293B;
-    --bg-card: #FFFFFF;
+    --bg-card: #A4F6D1;
     --border-color: #E2E8F0;
     --error-color: #EF4444;
     --warning-color: #F59E0B;
@@ -95,9 +95,9 @@ img {
 }
 
 .logo h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 0;
-    color: var(--text-dark);
+    color: var(--text-light);
 }
 
 .nav ul {
@@ -106,12 +106,12 @@ img {
 }
 
 .nav li a {
-    color: var(--text-dark);
+    color: var(--text-light);
     font-weight: 500;
     padding: 8px 12px;
     border-radius: 4px;
     transition: all 0.3s ease;
-    font-size: 32px; /* Adicionado */
+    font-size: 1.75rem; 
 }
 
 .nav li a:hover {
@@ -231,9 +231,12 @@ img {
 
 .btn-group {
     display: flex;
+    flex-direction: column;
     gap: 15px;
     margin-top: 20px;
 }
+
+
 
 /* Footer */
 .footer {
