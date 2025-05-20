@@ -7,11 +7,11 @@
 
 .dashboard-header .logo h1,
 .dashboard-header .nav li a {
-    color: white;
+    color: #A4F6D1;
 }
 
 .dashboard-header .logo i {
-    color: white;
+    color: #1D4ED8;
 }
 
 .dashboard-header .nav li a:hover {
@@ -21,22 +21,27 @@
 
 /* Dashboard main content */
 .dashboard-main {
-    padding: 40px 0;
+    padding: 0px 0;
 }
 
 .dashboard-header-content {
     text-align: center;
     margin-bottom: 40px;
+    background-color: #007858;
+    height: 200px;
+    align-content: center;
 }
 
 .dashboard-header-content h2 {
     font-size: 2rem;
     margin-bottom: 10px;
+    color: #D0FBE6
+    
 }
 
 .dashboard-header-content p {
-    color: var(--text-light);
-    font-size: 1.1rem;
+    color: #D0FBE6;
+    font-size: 1.4rem;
 }
 
 /* Dashboard sections */
@@ -97,7 +102,7 @@
 
 .data-card h4 {
     font-size: 1rem;
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-bottom: 10px;
 }
 
@@ -237,4 +242,33 @@
     .map-container {
         height: 350px;
     }
+}
+
+/* Estilização específica para os cartões de destaque do IDEB */
+#highlightCard1, #highlightCard2, #highlightCard3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#highlightCard1 .highlight-title,
+#highlightCard2 .highlight-title,
+#highlightCard3 .highlight-title {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+#highlightCard1 .highlight-value,
+#highlightCard2 .highlight-value,
+#highlightCard3 .highlight-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+#highlightCard2 .highlight-value {
+    font-size: 1.5rem; /* Ajuste para o IDEB de [Estado] */
 }

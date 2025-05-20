@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
@@ -25,7 +26,7 @@
                     <li><a href="index.html">Início</a></li>
                     <li><a href="#estudantes">Estudantes</a></li>
                     <li><a href="#infraestrutura">Infraestrutura</a></li>
-                    <li><a href="#evasao">Evasão</a></li>
+                    <li><a href="#evasao">Taxas</a></li>
                     <li><a href="#ideb">IDEB</a></li>
                     <li><a href="#regioes">Regiões</a></li>
                 </ul>
@@ -37,11 +38,12 @@
     </header>
 
     <main class="dashboard-main">
-        <div class="container">
-            <div class="dashboard-header-content">
+        <div class="dashboard-header-content">
                 <h2>Dashboard Educacional</h2>
                 <p>Visualize e analise os dados da educação brasileira</p>
-            </div>
+        </div>
+        <div class="container">
+            
 
             <div class="loading-overlay" id="loadingOverlay">
                 <div class="spinner"></div>
@@ -56,7 +58,7 @@
 
             <section id="estudantes" class="dashboard-section">
                 <div class="section-header">
-                    <h3>Realidade dos Estudantes</h3>
+                    <h3>Estudantes Matriculados</h3>
                     <div class="section-controls">
                         <select id="stateFilterEstudantes" class="filter-control">
                             <option value="0">Todos os Estados</option>
@@ -65,7 +67,7 @@
                         <datalist id="cityListEstudantes">
                             <option value="0">Todos os Municípios</option>
                         </datalist>
-                        <button class="btn-export" id="exportEstudantes">
+                        <button class="btn-export" id="exportEstudantes" disabled>
                             <i class="fas fa-download"></i> Exportar
                         </button>
                     </div>
@@ -74,7 +76,6 @@
                     <div class="data-card">
                         <h4>Total de Estudantes</h4>
                         <p class="card-value" id="totalEstudantes">-</p>
-                        <p class="card-comparison"><span id="compEstudantes">-</span> vs. ano anterior</p>
                     </div>
                     <div class="data-card">
                         <h4>Estudantes em Escolas Públicas</h4>
@@ -86,6 +87,9 @@
                         <p class="card-value" id="estudantesPrivadas">-</p>
                         <p class="card-percentage" id="percEstudantesPrivadas">-</p>
                     </div>
+                </div>
+                <div class="chart-title">
+                    <h3 id="nomeSelecionadoTitle">-</h3>
                 </div>
                 <div class="chart-container">
                     <canvas id="estudantesDistribuicaoChart"></canvas>
@@ -117,18 +121,18 @@
                     <div class="data-card">
                         <h4>Acesso à Internet</h4>
                         <p class="card-value" id="internetAccess">-</p>
-                        <p class="card-comparison"><span id="compInternet">-</span> vs. ano anterior</p>
                     </div>
                     <div class="data-card">
                         <h4>Laboratórios de Ciência</h4>
                         <p class="card-value" id="scienceLabs">-</p>
-                        <p class="card-comparison"><span id="compLabs">-</span> vs. ano anterior</p>
                     </div>
                     <div class="data-card">
                         <h4>Bibliotecas</h4>
                         <p class="card-value" id="libraries">-</p>
-                        <p class="card-comparison"><span id="compLibraries">-</span> vs. ano anterior</p>
                     </div>
+                </div>
+                <div class="chart-title">
+                    <h3 id="nomeInfraestruturaTitle">-</h3>
                 </div>
                 <div class="chart-container">
                     <canvas id="infraestruturaChart"></canvas>
@@ -137,7 +141,7 @@
 
             <section id="evasao" class="dashboard-section">
                 <div class="section-header">
-                    <h3>Evasão Escolar</h3>
+                    <h3>Taxas Educacionais</h3>
                     <div class="section-controls">
                         <select id="stateFilterEvasao" class="filter-control">
                             <option value="0">Todos os Estados</option>
@@ -148,7 +152,8 @@
                         </datalist>
                         <select id="nivelEvasao" class="filter-control">
                             <option value="todos">Todos os Níveis</option>
-                            <option value="fundamental">Ensino Fundamental</option>
+                            <option value="inicialFundamental">Fundamental Inicial</option>
+                            <option value="finalFundamental">Fundamental Final</option>
                             <option value="medio">Ensino Médio</option>
                         </select>
                         <button class="btn-export" id="exportEvasao">
@@ -156,21 +161,21 @@
                         </button>
                     </div>
                 </div>
+                <div class="chart-title">
+                    <h3 id="nomeEvasaoTitle">Taxas Educacionais em: <strong>Não informado</strong></h3>
+                </div>
                 <div class="cards-container">
                     <div class="data-card">
-                        <h4>Taxa de Evasão Geral</h4>
+                        <h4>Taxa de Evasão</h4>
                         <p class="card-value" id="taxaEvasao">-</p>
-                        <p class="card-comparison"><span id="compEvasao">-</span> vs. ano anterior</p>
                     </div>
                     <div class="data-card">
-                        <h4>Principal Motivo</h4>
-                        <p class="card-value" id="motivoEvasao">-</p>
-                        <p class="card-percentage" id="percMotivoEvasao">-</p>
+                        <h4>Taxa de Aprovação</h4>
+                        <p class="card-value" id="taxaAprovacao">-</p>
                     </div>
                     <div class="data-card">
-                        <h4>Região com Maior Evasão</h4>
-                        <p class="card-value" id="regiaoEvasao">-</p>
-                        <p class="card-percentage" id="taxaRegiaoEvasao">-</p>
+                        <h4>Taxa de Reprovação</h4>
+                        <p class="card-value" id="taxaReprovacao">-</p>
                     </div>
                 </div>
                 <div class="chart-container">
@@ -202,12 +207,12 @@
                 </div>
                 <div class="cards-container">
                     <div class="data-card">
-                        <h4>IDEB Nacional</h4>
-                        <p class="card-value" id="idebNacional">-</p>
-                        <p class="card-comparison"><span id="compIdeb">-</span> vs. meta</p>
+                        <h4>Melhor estado:</h4>
+                        <p class="card-value" id="nomeMelhorEstado">-</p>
+                        <p class="card-value-secondary" id="idebNacional">-</p>
                     </div>
                     <div class="data-card">
-                        <h4>Melhor Estado</h4>
+                        <h4>IDEB de:</h4>
                         <p class="card-value" id="melhorEstado">-</p>
                         <p class="card-value-secondary" id="idebMelhorEstado">-</p>
                     </div>
@@ -227,6 +232,7 @@
                     <h3>Desigualdades Regionais</h3>
                     <div class="section-controls">
                         <select id="indicadorRegional" class="filter-control">
+                            <option value="none" selected>Selecione um indicador</option>
                             <option value="ideb">IDEB</option>
                             <option value="evasao">Taxa de Evasão</option>
                             <option value="infraestrutura">Índice de Infraestrutura</option>
@@ -246,28 +252,33 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Educação em Dados</h3>
-                </div>
                 <div class="footer-links">
                     <h4>Links Úteis</h4>
                     <ul>
                         <li><a href="index.html">Início</a></li>
                         <li><a href="#estudantes">Estudantes</a></li>
                         <li><a href="#infraestrutura">Infraestrutura</a></li>
-                        <li><a href="#evasao">Evasão</a></li>
+                        <li><a href="#evasao">Taxas</a></li>
                         <li><a href="#ideb">IDEB</a></li>
                         <li><a href="#regioes">Regiões</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
-                    <h4>Nos Siga</h4>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <h4>Siga nossa equipe pelo LinkedIn<img class="linkedin" src="/assets/imagens/linkedin.svg"> </h4>
+                    
+                   <div class="integrantes_equipe">
+                        <div class="nomes_equipe" >
+                            <h4>Designers:</h4>
+                            <a href="#">João Wilson</a>
+                            <a href="#">Daniel Dutra</a>
+                        </div>
+                        <div class="nomes_equipe">
+                            <h4>Devs:</h4>
+                            <a href="https://www.linkedin.com/in/leonardo-farias-souza-a48616320/">Leonardo Farias</a>
+                            <a href="#">Arthur Lima</a>
+                            <a href="#">Franciellen Costa</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -278,6 +289,10 @@
         </div>
     </footer>
 
+    <script>
+        // Registrar o plugin Chart.js Datalabels
+        Chart.register(ChartDataLabels);
+    </script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/charts.js"></script>

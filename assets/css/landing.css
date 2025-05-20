@@ -110,7 +110,7 @@
 }
 
 .topic-card p {
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-bottom: 15px;
     flex-grow: 1;
 }
@@ -450,11 +450,14 @@
 
 .why-research .container {
     text-align: center;
+    background-color: #0ABF86;
+    
 }
 
 .why-research h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    padding-top: 20px;
     
 }
 
@@ -472,6 +475,9 @@
 }
 
 .research-image img {
-    max-width: 300px;
+    width: 800px;
+    height: 500px;
     border: 2px solid #000000;
+    background-color: #D0FBE6;
+    margin-bottom: 40px;
 }
