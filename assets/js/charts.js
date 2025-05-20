@@ -401,7 +401,7 @@ async function updateEvasaoSection() {
 
     const nomeEvasaoTitle = document.getElementById('nomeEvasaoTitle');
     if (nomeEvasaoTitle) {
-      nomeEvasaoTitle.innerHTML = `Taxas Educacionais em: <strong>${safeData.nomeSelecionado}</strong>`;
+      nomeEvasaoTitle.innerHTML = ` <strong>${safeData.nomeSelecionado}</strong>`;
     } else {
       console.error('Elemento nomeEvasaoTitle não encontrado no DOM.');
     }
