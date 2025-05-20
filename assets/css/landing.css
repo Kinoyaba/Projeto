@@ -4,21 +4,19 @@
 /* Hero Section */
 .hero {
     padding: 80px 0;
-    
-    background-color:var(--bg-light); ;
+    background-color: var(--bg-light);
 }
 
 .hero .container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Antes era space-between */
+    justify-content: center;
     gap: 40px;
     background-color: var(--bg-light);
 }
 
 .hero-content {
     text-align: center;
-
 }
 
 .hero-content h2 {
@@ -77,24 +75,24 @@ p.chamada-dashboard {
 
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 280px)); /* define 3 colunas de até 280px */
+    grid-template-columns: repeat(3, minmax(0, 280px));
     gap: 30px;
     justify-content: center;
-    max-width: 900px;   /* limita a largura total da grid */
-    margin-left: auto;  /* centraliza horizontalmente */
-    margin-right: auto; /* centraliza horizontalmente */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .topics-grid.center-two {
     display: flex;
-    margin-top: 40px; /* ou o valor que quiser pra espaçar */
+    margin-top: 40px;
     justify-content: center;
     gap: 30px;
 }
 
 .topics-grid.center-two .topic-card {
-    max-width: 300px; /* limita a largura máxima */
-    flex: 1 1 300px;  /* cresce até 300px, mas não passa */
+    max-width: 300px;
+    flex: 1 1 300px;
 }
 
 .topic-card {
@@ -106,7 +104,7 @@ p.chamada-dashboard {
     display: flex;
     flex-direction: column;
     align-items: center;
-text-align: center;    
+    text-align: center;
 }
 
 .topic-card:hover {
@@ -122,7 +120,6 @@ text-align: center;
     display: flex;
     align-items: center;
     align-self: center;
-
     justify-content: center;
     margin-bottom: 20px;
 }
@@ -146,7 +143,7 @@ text-align: center;
 /* About Section */
 .about {
     padding: 80px 0;
-    background-color: var(--bg-light);;
+    background-color: var(--bg-light);
 }
 
 .about-content {
@@ -154,10 +151,8 @@ text-align: center;
     text-align: center;
 }
 
-
-
 .about-content h2 {
-    font-size: 2.5rem; /* aumenta ou diminui aqui */
+    font-size: 2.5rem;
 }
 
 .about-content p {
@@ -176,23 +171,22 @@ text-align: center;
 }
 
 .about-buttons .btn-navigate {
-    border-radius: 20px; /* deixa o botão arredondado */
-    padding: 10px 20px; /* aumenta o espaço interno pra ficar mais bonito */
-    font-size: 1.5rem; /* ajusta o tamanho do texto */
-    background-color: #2253AB; /* cor de fundo */
-    color: #D9D9D9; /* cor do texto */
-    text-decoration: none; /* remove sublinhado */
-    display: flex; /* alinhamento interno */
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background-color: #2253AB;
+    color: #D9D9D9;
+    text-decoration: none;
+    display: flex;
     align-items: center;
-    gap: 10px; /* espaço entre texto e ícone */
-    box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.25); /* sombra legal */
+    gap: 10px;
+    box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.25);
     transition: background-color 0.3s ease;
 }
 
 .about-buttons .btn-navigate:hover {
-    background-color: #2B7CE5; /* cor ao passar o mouse */
+    background-color: #2B7CE5;
 }
-
 
 /* Contact Section */
 .contact {
@@ -238,65 +232,10 @@ text-align: center;
     outline: none;
 }
 
-/* Responsive styles for landing page */
-@media (max-width: 992px) {
-    .hero .container {
-        flex-direction: column;
-    }
-    
-    .hero-content {
-        text-align: center;
-    }
-    
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-    
-    .btn-group {
-        justify-content: center;
-    }
-    
-    .hero-image {
-        justify-content: center;
-        margin-top: 30px;
-    }
-    
-    .about-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-@media (max-width: 768px) {
-    .hero {
-        padding: 60px 0;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .topics {
-        padding: 60px 0;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .topics-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .about, .contact {
-        padding: 60px 0;
-    }
-}
-
 /* Access Education Section */
 .access-education {
     padding: 86.82px 184.5px 65.18px 192.6px;
     background-color: #007858;
-    
 }
 
 .access-education .container {
@@ -306,18 +245,18 @@ text-align: center;
     justify-content: center;
     padding: 0;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .access-content {
-    
     display: flex;
     flex-direction: column;
-    justify-content: space-around ;
+    justify-content: space-around;
     flex: 1;
     text-align: justify;
     width: 50%;
     gap: 40px;
-
 }
 
 .access-content h2 {
@@ -325,16 +264,14 @@ text-align: center;
     font-size: 3.69rem;
     color: #D0FBE6;
     height: 114px;
-
 }
-
 
 .access-content p {
     font-family: "Inter", sans-serif;
     font-size: 2rem;
     font-weight: 400;
     color: #6AEBBA;
-    }
+}
 
 .access-content .btn-navigate {
     display: flex;
@@ -414,81 +351,9 @@ text-align: center;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/*IMAGENSS__*/
-
-
-
-/* Imagem com largura e altura fixas até o máximo */
-.img-educacao {
-  width: 80%;
-  max-width: 600px; /* Limite de largura máxima */
-  height: auto; /* A altura vai se ajustar proporcionalmente à largura */
-  border-radius: 10px;
-  flex: 1;
-}
-
-
-/* Container que vai segurar o conteúdo e a imagem lado a lado */
-.access-education .container {
-  display: flex;
-  align-items: center; /* Alinha o conteúdo verticalmente ao centro */
-  justify-content: space-between; /* Garante que os itens fiquem com espaçamento entre eles */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 30px;
-}
-
-/* Estilização do conteúdo (texto) */
-.access-content {
-    flex:1;
-  max-width: 600px; /* Garante que o texto não ocupe toda a largura, deixando espaço para a imagem */
-}
-
-.access-content h2 {
-  font-size: 2.5rem; /* Ajuste do tamanho do título */
-  margin-bottom: -30px;
-}
-
-.access-content p {
-  font-size: 1.6rem; /* Tamanho do texto */
-  line-height: 1; /* Ajusta o espaçamento entre as linhas do parágrafo */
-  margin-bottom: -5px; /* Espaço após o parágrafo */
-}
-
-.access-image {
-  max-width: 480px; /* limita o container */
-  flex: 1; /* se quiser flexível */
-}
-
-
-/* Estilização da imagem */
-.access-image .img-educacao1 {
-  width: 50%; /* Garante que a imagem ocupe toda a largura do seu container */
-  max-width: 600px; /* Limita a largura máxima da imagem */
-  height: auto; /* Mantém a proporção da imagem */
-  border-radius: 10px; /* Bordas arredondadas na imagem */
-}
-
-/* Estilo do link com a seta */
-.btn-navigate {
-  display: inline-flex; 
-  align-items: center; 
-  text-decoration: none;
-  background-color: #007BFF;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.icon-arrow {
-  margin-left: 10px; /* Espaço entre o texto e a seta */
-}
-
-/* Estilo para o bloco educacional */
+/* Education Transform Section */
 .education-transform {
-    background-color:var(--bg-light);
+    background-color: var(--bg-light);
     padding: 30px 0;
     margin: 30px 0;
 }
@@ -501,14 +366,12 @@ text-align: center;
 
 .education-transform h2 {
     font-size: 36px;
-    color: #333; /* Trocar essa cor */
+    color: #000;
     margin-bottom: 25px;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
-    text-align: center; /* Adicionar isso */
-    color: #000; /* Ou qualquer tom escuro mais forte */
+    text-align: center;
 }
-
 
 .education-info-block {
     display: flex;
@@ -516,10 +379,9 @@ text-align: center;
     border-radius: 10px;
     overflow: hidden;
     background-color: #2ecc8a;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     gap: 0;
 }
-
 
 .education-image {
     flex: 0 0 35%;
@@ -540,7 +402,6 @@ text-align: center;
     border-radius: 8px;
     padding-top: 40px;
 }
-
 
 .education-text p {
     color: #333;
@@ -575,55 +436,46 @@ text-align: center;
     font-size: 1.5rem;
     margin-bottom: 40px;
     width: 100%;
-    padding: 10 20  px;
+    padding: 10 20px;
     text-align: justify;
     margin-left: 0;
 }
-
 
 .challenges-grid {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    
-    //*margin: 0 auto;    /* centraliza tudo */
 }
-
 
 .challenge-item {
     display: flex;
     align-items: stretch;
-    gap:5px;
+    gap: 5px;
     background-color: #ffffff;
     border-radius: 10px;
     overflow: hidden;
-    padding: 0; /* topo 20, direita 20, baixo 0, esquerda 0 */
-    min-height: 250px; /* ou a altura que quiser, pra garantir que ele tenha altura */
+    padding: 0;
+    min-height: 250px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-   
     margin: 0 auto;
 }
 
 .challenge-image {
     flex: 0 0 400px;
-    padding: 0; /* tira qualquer espaçamento interno */
-    /*height: 100%; /* tenta pegar toda a altura do bloco */
+    padding: 0;
 }
-
 
 .challenge-image img {
     width: 100%;
-    height: 100%;       /* mudou de auto para 100% */
-    object-fit: cover;  /* mantém a proporção e preenche */
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
-
-
 
 .challenge-text {
     flex: 1;
     text-align: justify;
-    padding: 20px; /* afasta o texto das bordas */
+    padding: 20px;
     background-color: #0ABF86;
 }
 
@@ -638,10 +490,9 @@ text-align: center;
     font-size: 1.5rem;
     margin-top: 15px;
     margin-bottom: 5px;
-    text-align: justify;    /* Alinha o texto justificado */
-    line-height: 1.5;       /* Espaçamento entre linhas mais confortável */
+    text-align: justify;
+    line-height: 1.5;
 }
-
 
 /* Why Research Section */
 .why-research {
@@ -653,14 +504,12 @@ text-align: center;
 .why-research .container {
     text-align: center;
     background-color: #0ABF86;
-    
 }
 
 .why-research h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     padding-top: 20px;
-    
 }
 
 .why-research .subtitle {
@@ -683,4 +532,215 @@ text-align: center;
     border: 2px solid #000000;
     background-color: #D0FBE6;
     margin-bottom: 40px;
+}
+
+/* Responsive styles for landing page */
+@media (max-width: 992px) {
+    .hero .container {
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .btn-group {
+        justify-content: center;
+    }
+    
+    .hero-image {
+        justify-content: center;
+        margin-top: 30px;
+    }
+    
+    .about-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .access-education {
+        padding: 60px 50px;
+    }
+
+    .access-education .container {
+        flex-direction: column;
+    }
+
+    .access-content, .access-image {
+        width: 100%;
+    }
+
+    .transform-education .container {
+        flex-direction: column;
+    }
+
+    .transform-content, .transform-image {
+        width: 100%;
+    }
+
+    .education-info-block {
+        flex-direction: column;
+    }
+
+    .education-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .challenges-grid .challenge-item {
+        flex-direction: column;
+    }
+
+    .challenge-image {
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .topics {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about, .contact {
+        padding: 60px 0;
+    }
+
+    .access-education {
+        padding: 40px 20px;
+    }
+
+    .access-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .access-content p {
+        font-size: 1.5rem;
+    }
+
+    .access-content .btn-navigate {
+        font-size: 1.5rem;
+    }
+
+    .transform-content h2 {
+        font-size: 2rem;
+    }
+
+    .transform-content p {
+        font-size: 1rem;
+    }
+
+    .education-transform h2 {
+        font-size: 1.8rem;
+    }
+
+    .education-text p {
+        font-size: 1.2rem;
+    }
+
+    .education-challenges h2 {
+        font-size: 1.8rem;
+    }
+
+    .education-challenges .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .challenge-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .challenge-text p {
+        font-size: 1.2rem;
+    }
+
+    .why-research h2 {
+        font-size: 1.8rem;
+    }
+
+    .why-research .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .research-image img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero-image img {
+        max-width: 350px;
+    }
+
+    .topics-grid {
+        grid-template-columns: repeat(2, minmax(0, 280px));
+    }
+
+    .access-education {
+        padding: 50px 40px;
+    }
+
+    .access-content h2 {
+        font-size: 3rem;
+    }
+
+    .access-content p {
+        font-size: 1.8rem;
+    }
+
+    .transform-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .transform-image img {
+        max-width: 300px;
+    }
+
+    .education-transform h2 {
+        font-size: 2.5rem;
+    }
+
+    .education-text p {
+        font-size: 1.5rem;
+    }
+
+    .education-challenges h2 {
+        font-size: 2.2rem;
+    }
+
+    .challenge-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .challenge-text p {
+        font-size: 1.3rem;
+    }
+
+    .why-research h2 {
+        font-size: 2.2rem;
+    }
 }

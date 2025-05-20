@@ -92,15 +92,15 @@ O projeto foi desenvolvido por uma equipe composta por 3 alunos de Front-end e 2
 
 Front-end
 
-LEONARDO FARIAS SOUZA - https://www.linkedin.com/in/leonardo-farias-souza-a48616320
-ARTHUR LIMA SILVA
-FRANCIELLEN COSTA SANTOS
+LEONARDO FARIAS SOUZA - https://www.linkedin.com/in/leonardo-farias-souza-a48616320 <br>
+ARTHUR LIMA SILVA - https://www.linkedin.com/in/arthur-lima-1118632b5/ <br>
+FRANCIELLEN COSTA SANTOS - https://br.linkedin.com/in/franciellen-santos <br> 
 
 
 UX
 
-DANIEL DUTRA VALE
-JOAO WILSON OLIVEIRA GUIMARAES
+DANIEL DUTRA VALE - https://www.linkedin.com/in/daniel-dutra-4aa865346<br>
+JOAO WILSON OLIVEIRA GUIMARAES - https://www.linkedin.com/in/wilsonguimaraex<br>
 
 Contribuindo
 Este é um projeto de estudo, mas sugestões são bem-vindas! Para contribuir:
