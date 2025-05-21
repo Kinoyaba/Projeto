@@ -567,7 +567,8 @@ p.chamada-dashboard {
     }
 
     .access-education .container {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        
     }
 
     .access-content, .access-image {
@@ -641,6 +642,10 @@ p.chamada-dashboard {
         font-size: 1.5rem;
     }
 
+    .access-image img {
+    margin-bottom: 70px;
+}
+
     .transform-content h2 {
         font-size: 2rem;
     }
@@ -706,6 +711,7 @@ p.chamada-dashboard {
 
     .access-content h2 {
         font-size: 3rem;
+        margin-bottom: 0;
     }
 
     .access-content p {

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.style.top = '80px';
                 navMenu.style.left = '0';
                 navMenu.style.width = '100%';
-                navMenu.style.backgroundColor = '#fff';
+                navMenu.style.backgroundColor = '#04503D';
                 navMenu.style.padding = '20px';
                 navMenu.style.boxShadow = '0 10px 15px rgba(0, 0, 0, 0.1)';
             } else {

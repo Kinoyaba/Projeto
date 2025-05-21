@@ -1,0 +1,124 @@
+\documentclass[a4paper,12pt]{article}
+
+% Preamble: Configurando pacotes e configurações gerais
+\usepackage[utf8]{inputenc} % Suporte a caracteres acentuados
+\usepackage[brazil]{babel} % Idioma português brasileiro
+\usepackage{geometry} % Configuração de margens
+\geometry{a4paper, margin=1in}
+\usepackage{graphicx} % Para incluir imagens
+\usepackage{url} % Para formatar URLs
+\usepackage{hyperref} % Para links clicáveis
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{enumitem} % Para listas personalizadas
+\usepackage{fancyhdr} % Para cabeçalho e rodapé
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Documentação do Projeto de Dashboard Educacional}
+\fancyhead[R]{Grupo 27: 3 Front-end + 2 UX}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Início do documento
+\begin{document}
+
+% Título e autores
+\title{Documentação do Projeto de Dashboard Educacional com Landing Page Institucional}
+\author{
+    LEONARDO FARIAS SOUZA (Front-end) \\ 
+    ARTHUR LIMA SILVA(Front-end) \\ 
+    VILANE DE SOUSA ARAUJO (Front-end) \\ 
+    DANIEL DUTRA VALE (UX) \\ 
+    JOAO WILSON OLIVEIRA GUIMARAES (UX) \\ 
+    
+}
+\date{\today\ - \currenttime}
+\maketitle
+
+% Resumo
+\begin{abstract}
+Este documento detalha o desenvolvimento de um projeto educacional que inclui uma landing page institucional e um dashboard interativo, criado por uma equipe de 3 alunos de Front-end e 2 de UX. O projeto utiliza a API QEdu e IBGE para exibir dados educacionais, com foco em responsividade, acessibilidade e clareza. São descritos o processo de desenvolvimento, decisões técnicas, estrutura da aplicação e entregas, incluindo links para Figma, GitHub e vídeo de apresentação.
+\end{abstract}
+
+\section*{Introdução}
+O objetivo deste projeto é desenvolver uma landing page institucional para apresentar um dashboard educacional interativo que exibe indicadores como IDEB, matrículas, infraestrutura escolar, evasão e desigualdades regionais. A landing page, responsiva e atrativa, explica a proposta, destaca a importância do projeto e incentiva os usuários a explorarem os dados. O dashboard, também responsivo, permite explorar dados reais via API QEdu e IBGE, com visualizações claras e filtros interativos.
+
+\section{Processo de Desenvolvimento}
+### Trilha de UX
+A trilha de UX guiou o design centrado no usuário, dividida em três etapas:
+
+\begin{enumerate}
+    \item \textbf{Descoberta (Pesquisa e Compreensão do Problema)}
+    \begin{itemize}
+        \item \textbf{Matriz CSD}: Levantou certezas (ex.: interesse em dados educacionais), suposições (ex.: usuários buscam visualizações simples) e dúvidas (ex.: quais filtros são mais úteis).
+        \item \textbf{Desk Research}: Validou a problemática com dados secundários da API QEdu, confirmando relevância de indicadores como evasão e IDEB.
+        \item \textbf{Mapa de Empatia}: Identificou dores (ex.: dificuldade de acesso a dados) e desejos (ex.: visualizações intuitivas) de educadores e cidadãos.
+        \item \textbf{Persona}: Criada uma persona fictícia, "Algenor, professor de 35 anos" e a , que busca dados para planejar aulas.
+    \end{itemize}
+
+    \item \textbf{Definição (Estrutura e Ideação)}
+    \begin{itemize}
+        \item \textbf{Jornada do Usuário}: Mapeou o fluxo do primeiro contato na landing page até a exploração de dados no dashboard, com etapas como "Acessar", "Explorar Filtros" e "Analisar Resultados".
+        \item \textbf{Wireframes}: Estruturou telas iniciais para landing page (imagem do dashboard, sobre, CTA) e dashboard (filtros, gráficos, tabela).
+        \item \textbf{Fluxo de Navegação}: Definido um fluxo linear da landing page para o dashboard via botão CTA.
+    \end{itemize}
+
+    \item \textbf{Design (Prototipação e Validação Visual)}
+    \begin{itemize}
+        \item \textbf{Protótipos no Figma}: Criados protótipos de alta fidelidade para landing page e dashboard, disponíveis em \href{https://www.figma.com/design/4vshnHxQPJHBihycsaqVKe/4%C2%BA-desafio-do-trilhas?node-id=13-4&t=EUorml7Y47f2oeh1-0}{Figma Link}.
+        \item \textbf{Testes de Usabilidade}: Validados com 2 usuários, ajustando a hierarquia de informações e tamanho dos botões.
+        \item \textbf{UI Kit / Handoff}: Entregue guia visual com paleta de cores (ex.: azul \#007BFF), fontes (ex.: Roboto), e componentes (botões, cards).
+    \end{itemize}
+\end{enumerate}
+
+### Trilha de Front-end
+Os desenvolvedores de Front-end colaboraram com a equipe de UX em todas as etapas, implementando o projeto com as seguintes entregas:
+
+\begin{itemize}
+    \item \textbf{Landing Page}: Construída com base no protótipo do Figma, incluindo imagem do dashboard, seção "Sobre o Projeto", botão CTA para o dashboard e rodapé.
+    \item \textbf{Dashboard}: Desenvolvido com interface interativa, exibindo dados da API QEdu (ex.: IDEB, evasão) e IBGE (nomes de cidades/estados), com gráficos, tabelas e filtros por cidade/região/tema.
+    \item \textbf{Consumo de API}: Integrada a API QEdu (\url{https://api.qedu.org.br/v1}) com requisições HTTPS diretas, autenticadas por token.
+    \item \textbf{Tratamento de Erros}: Implementado feedback como "Erro ao carregar os dados. Tente novamente mais tarde" para falhas de API, demora ou dados vazios.
+    \item \textbf{Responsividade}: Aplicada adaptação para desktop, tablet e celular usando media queries em CSS.
+    \item \textbf{Organização}: Arquivos HTML (index.html, dashboard.html), CSS (style.css, landing.css, dashboard.css) e JS (api.js, charts.js, main.js) separados e bem nomeados.
+    \item \textbf{Repositório}: Criado em \href{https://github.com/Kinoyaba/projeto}{GitHub Link}, com commits de todos os integrantes.
+    \item \textbf{Deploy}: Publicada no GitHub Pages em \url{https://kinoyaba.github.io/Projeto}.
+\end{itemize}
+
+\section{Decisões Técnicas e Estrutura da Aplicação}
+### Decisões Técnicas
+- \textbf{API}: Optou-se pela API QEdu por oferecer dados educacionais reais e atualizados, com suporte a HTTPS direto após testes iniciais com proxy (proxy-server/). O token foi incluído em api.js, aceitável para um projeto de estudo.
+- \textbf{Responsividade}: Usadas media queries e unidades relativas (%, vw, rem) para adaptar layouts a diferentes telas.
+- \textbf{Tratamento de Erros}: Adicionada uma overlay de carregamento e mensagem de erro em dashboard.html, monitorada via console.log em api.js.
+- \textbf{Deploy}: Escolhido GitHub Pages por ser gratuito e integrado ao repositório, evitando custos com Netlify ou Vercel.
+
+### Estrutura da Aplicação
+A estrutura reflete uma organização modular:
+\begin{itemize}
+    \item \textbf{index.html}: Landing page com preview (assets/imagens/dashboard.jpg), seção "Sobre", CTA e rodapé.
+    \item \textbf{dashboard.html}: Interface interativa com filtros e visualizações.
+    \item \textbf{assets/js/}:
+        - \textit{api.js}: Lógica de requisições à API QEdu e IBGE.
+        - \textit{charts.js}: Gráficos com Chart.js.
+        - \textit{main.js}: Inicialização do dashboard.
+    \item \textbf{assets/css/}:
+        - \textit{style.css}: Estilos globais.
+        - \textit{landing.css}: Estilos da landing page.
+        - \textit{dashboard.css}: Estilos do dashboard.
+    \item \textbf{assets/imagens/}: Imagens como linkedin.svg e dashboard.jpg.
+    \item \textbf{proxy-server/}: Servidor Node.js opcional para testes locais, mantido como referência.
+\end{itemize}
+
+\section{Entregas e Links}
+- \textbf{Link do Figma}: \href{https://www.figma.com/design/4vshnHxQPJHBihycsaqVKe/4%C2%BA-desafio-do-trilhas?node-id=13-4&t=EUorml7Y47f2oeh1-0}{https://www.figma.com/design/4vshnHxQPJHBihycsaqVKe/4%C2%BA-desafio-do-trilhas?node-id=13-4&t=EUorml7Y47f2oeh1-0} (substitua pelo link real).
+- \textbf{Repositório do GitHub}: \href{https://github.com/Kinoyaba/projeto}{https://github.com/Kinoyaba/projeto}.
+- \textbf{Link do Vídeo de Apresentação}: \href{https://www.youtube.com/watch?v=EXEMPLO-DO-VIDEO}{https://www.youtube.com/watch?v=EXEMPLO-DO-VIDEO} (substitua pelo link real do vídeo de até 5 minutos após gravá-lo. Instruções: grave uma apresentação destacando a landing page, o dashboard, e os dados da API, com duração máxima de 5 minutos).
+
+\section{Conclusão}
+O projeto atendeu aos requisitos de uma landing page institucional e um dashboard interativo, com foco em responsividade, acessibilidade e clareza. A colaboração entre UX e Front-end garantiu uma solução centrada no usuário, enquanto a integração com a API QEdu e o deploy no GitHub Pages asseguraram funcionalidade. Próximos passos incluem testes adicionais com mais usuários e ajustes baseados em feedback.
+
+\end{document}
